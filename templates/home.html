@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style/app.css" />
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script defer src="/static/script/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      {% for row in board %}
+      <div class="row">
+        {% for cell in row %}
+        <div class="cell">{{ cell }}</div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    <div>highscore: {{highscore}}. Played times: {{playedtimes}}</div>
+    <form>
+      <input class="answer" type="text" name="word" />
+      <button>Submit</button>
+    </form>
+    <div id="result"></div>
+    <div id="score">your score 0</div>
+    <div id="timer"></div>
+  </body>
+</html>
